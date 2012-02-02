@@ -45,28 +45,37 @@
 <!--
     <td>< % = listing.state % ></td>
 -->
-    <td>$<%= listing.price %></td>
-    <td>$<%= listing.zprice %></td>
+    <td>$&nbsp;<%=  number_with_delimiter(listing.price, :delimiter => ',') %></td>
+    <td>$&nbsp;<%=  number_with_delimiter(listing.zprice, :delimiter => ',') %></td>
 <!--
     <td>< % = listing.beds % ></td>
     <td>< % = listing.baths % ></td>
 -->
-    <td><%= listing.lot_size %></td>
-    <td><%= listing.home_size %></td>
-    <td><%= listing.sold_price %></td>
+    <td align="center"><%=  number_with_delimiter(listing.lot_size, :delimiter => ',') %></td>
+    <td align="center"><%=  number_with_delimiter(listing.home_size, :delimiter => ',') %></td>
+    <td align="center">$ <%= number_with_delimiter(listing.sold_price, :delimiter => ',') %></td>
     <td><%= listing.date_sold %></td>
 <!--
     <td>< % = listing.sale_type % ></td>
     <td>< % = listing.listing % ></td>
     <td>< % = listing.times_listed % ></td>
+    <td align="center">< % = listing.market_time % ></td>
 -->
-    <td><%= listing.market_time %></td>
+    <% days = ((Date.today - listing.created_at.to_date) + listing.market_time) %>
+    <td align="center"><%= days.to_i %></td>
     <td><%= listing.contact %></td>
 <!--
     <td><%= listing.contacted %></td>
+
+<td>< % = check_box_tag :contacted , 1 , listing.contacted ? false :
+true % ></td>
+    <td>< % = listing.viewed % ></td>
 -->
-    <td><%= listing.viewed %></td>
-    <td><%= listing.notes %></td>
+
+    <td><%= check_box_tag :viewed , 1 , listing.viewed ? true : false %>
+<!--
+    <td>< % = listing.notes % ></td>
+-->
     <td><%= link_to 'Show', listing %></td>
     <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
     <td><%= link_to 'Destroy', listing, confirm: 'Are you sure?', method: :delete %></td>
