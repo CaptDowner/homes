@@ -25,7 +25,9 @@
 </tr>
 
 <tr>
-  <td  align="right"><b>Listing:</b></td><td><%= @listing.listing %> <td  align="right"><b>Times listed:</b></td><td><%= @listing.times_listed %> <td  align="right"><b>Days On Market:</b></td><td><%= @listing.market_time %>
+  <td  align="right"><b>Listing:</b></td><td><%= @listing.listing %><td  align="right"><b>Times listed:</b></td><td><%= @listing.times_listed %> 
+  <% days = ((Date.today - @listing.created_at.to_date) + @listing.market_time).to_i %>
+  <td  align="right"><b>Days On Market:</b></td><td><%= days.to_i %>
 </tr>
 
 <tr>
@@ -34,6 +36,16 @@
 
 <tr>
   <td  align="right"><b>Contacted:</b></td><td><%= @listing.contacted %> <td  align="right"><b>Viewed:</b></td><td><%= @listing.viewed %>
+</tr>
+
+<tr>
+  <td align="right"><b>Created:</b></td><td><%= @listing.created_at %></td>
+  <td align="right"><b>Updated</b></td><td><%= @listing.updated_at %></td> 
+</tr>
+
+<tr>
+ <td  align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>URL:</b></td>
+  <td colspan="4"><%= link_to(@listing.url, @listing.url, :remote => true) %></td>
 </tr>
 
 <tr>
