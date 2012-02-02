@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201234901) do
+ActiveRecord::Schema.define(:version => 20120202171701) do
 
   create_table "listings", :force => true do |t|
     t.string   "priority"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120201234901) do
     t.string   "cell"
     t.string   "phone"
     t.boolean  "sold",         :default => false
+    t.string   "url"
   end
 
 end
