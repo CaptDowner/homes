@@ -1,0 +1,59 @@
+<%= form_for(@listing) do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    &nbsp;&nbsp;&nbsp;<%= f.label :priority %>: <%= f.select(:priority, ['undecided','must_see','should_see','maybe','never']) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :beds %>: <%= f.select(:beds, ['three','four','five']) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :baths %>: <%= f.select(:baths, ['two','three','four','five']) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :sale_type %>: <%= f.select(:sale_type, ['normal','short','foreclosure']) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :listing %>: <%= f.select(:listing, ['agent','owner','bank']) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :times_listed %>: <%= f.select(:times_listed, ['once','twice','three','four','five']) %>
+  </div>
+  <div class="field">
+    <%= f.label :address %>: <%= f.text_field :address %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :city %>: <%= f.text_field :city %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :zip %>: <%= f.text_field :zip %>
+  </div>
+
+  <div class="field">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :price %>: <%= f.number_field :price %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :zprice %>: <%= f.number_field :zprice %>
+  </div>
+  <div class="field">
+    <%= f.label :market_time %>:  <%= f.number_field :market_time %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :lot_size %>: <%= f.number_field :lot_size %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :home_size %>: <%= f.number_field :home_size %>
+  </div>
+  <div class="field">
+    <%= f.label :date_sold %>: <%= f.date_select :date_sold %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :sold_price %>: <%= f.number_field :sold_price %>
+  </div>
+  <div class="field">
+    <%= f.label :contact %>: <%= f.text_field :contact %>&nbsp;&nbsp;&nbsp;
+<!--
+    < % = f.label :cell % >: < % = f.text.field :cell %>&nbsp;&nbsp;&nbsp;
+    < % = f.label :phone % >: < % = f.text.field :phone % >
+-->
+  </div>
+  <div class="field">
+    <%= f.label :contacted %>: <%= f.check_box :contacted %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :viewed %>: <%= f.check_box :viewed %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

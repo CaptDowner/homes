@@ -1,0 +1,63 @@
+<h1>Listing listings</h1>
+
+<table>
+  <tr>
+    <th>Priority</th>
+    <th>Zip</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Price</th>
+    <th>Zprice</th>
+    <th>Beds</th>
+    <th>Baths</th>
+    <th>Lot size</th>
+    <th>Home size</th>
+    <th>Sold price</th>
+    <th>Date sold</th>
+    <th>Sale type</th>
+    <th>Listing</th>
+    <th>Times listed</th>
+    <th>Market time</th>
+    <th>Contact</th>
+    <th>Contacted</th>
+    <th>Viewed</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @listings.each do |listing| %>
+  <tr>
+    <td><%= listing.priority %></td>
+    <td><%= listing.zip %></td>
+    <td><%= listing.address %></td>
+    <td><%= listing.city %></td>
+    <td><%= listing.state %></td>
+    <td><%= listing.price %></td>
+    <td><%= listing.zprice %></td>
+    <td><%= listing.beds %></td>
+    <td><%= listing.baths %></td>
+    <td><%= listing.lot_size %></td>
+    <td><%= listing.home_size %></td>
+    <td><%= listing.sold_price %></td>
+    <td><%= listing.date_sold %></td>
+    <td><%= listing.sale_type %></td>
+    <td><%= listing.listing %></td>
+    <td><%= listing.times_listed %></td>
+    <td><%= listing.market_time %></td>
+    <td><%= listing.contact %></td>
+    <td><%= listing.contacted %></td>
+    <td><%= listing.viewed %></td>
+    <td><%= listing.notes %></td>
+    <td><%= link_to 'Show', listing %></td>
+    <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+    <td><%= link_to 'Destroy', listing, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Listing', new_listing_path %>
