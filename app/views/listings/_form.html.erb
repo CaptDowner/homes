@@ -36,7 +36,7 @@
     <%= f.label :home_size %>: <%= f.number_field :home_size %>
   </div>
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :date_sold %>: <%= f.date_select :date_sold %>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :date_sold %>: <%= f.date_select :date_sold, :start_year => 1950 %>&nbsp;&nbsp;&nbsp;
     <%= f.label :sold_price %>: <%= f.number_field :sold_price %>
   </div>
   <div class="field">
@@ -50,8 +50,13 @@
     <%= f.label :viewed %>: <%= f.check_box :viewed %>&nbsp;&nbsp;&nbsp;
     <%= f.label :sold %>: <%= f.check_box :sold %>
   </div>
+
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :notes %>:&nbsp;&nbsp;<%= f.text_area(:notes, :size => "132x6") %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :url %>: <%= f.text_field :url %>
+  </div>
+
+  <div class="field">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :notes %>:&nbsp;<%= f.text_area(:notes, :size => "132x6") %>
   </div>
   <div class="actions">
     <%= f.submit %>
