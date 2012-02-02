@@ -1,110 +1,47 @@
+<h1>Listed Home Information</h1>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Priority:</b>
-  <%= @listing.priority %>
-</p>
+<table>
+<tr>
+  <td align="right"><b>Priority:</b></td><td><%= @listing.priority %></td><td  align="right"><b>State:</b></td><td><%= @listing.state %></td>
+</tr>
+<tr>
+  <td  align="right"><b>Address:</b></td><td><%= @listing.address
+  %></td><td  align="right"><b>City:</b></td><td><%= @listing.city %></td><td:</b>
+  </td><td  align="right"><b>Zip:</b></td><td><%= @listing.zip %></td>
+</tr>
 
-<p>
-  <b>Zip:</b>
-  <%= @listing.zip %>
-</p>
+<tr>
+  <td  align="right"><b>Price:</b></td><td><%= @listing.price %></td><td  align="right"><b>Z-Estimate:</b></td><td><%= @listing.zprice %></td><td  align="right"><b>Home size:</b></td><td><%= @listing.home_size %></td>
+</tr>
 
-<p>
-  <b>Address:</b>
-  <%= @listing.address %>
-</p>
+<tr>
+  <td  align="right"><b>Beds:</b></td><td><%= @listing.beds %></td><td  align="right"><b>Baths:</b></td><td><%= @listing.baths %></td><td  align="right"><b>Lot size:</b></td><td><%= @listing.lot_size %></td>
+</tr>
 
-<p>
-  <b>City:</b>
-  <%= @listing.city %>
-</p>
+<tr>
+  <td  align="right"><b>Sold price:</b></td><td><%= @listing.sold_price %></td><td  align="right"><b>Date sold:</b></td><td><%= @listing.date_sold %></td><td  align="right"><b>Sale type:</b></td><td><%= @listing.sale_type %></td> 
+</tr>
 
-<p>
-  <b>State:</b>
-  <%= @listing.state %>
-</p>
+<tr>
+  <td  align="right"><b>Listing:</b></td><td><%= @listing.listing %> <td  align="right"><b>Times listed:</b></td><td><%= @listing.times_listed %> <td  align="right"><b>Days On Market:</b></td><td><%= @listing.market_time %>
+</tr>
 
-<p>
-  <b>Price:</b>
-  <%= @listing.price %>
-</p>
+<tr>
+  <td  align="right"><b>Contact:</b></td><td><%= @listing.contact %> <td  align="right"><b>Cell:</b></td><td><%= @listing.cell %> <td  align="right"><b>Phone:</b></td><td><%= @listing.phone %>
+</tr>
 
-<p>
-  <b>Zprice:</b>
-  <%= @listing.zprice %>
-</p>
+<tr>
+  <td  align="right"><b>Contacted:</b></td><td><%= @listing.contacted %> <td  align="right"><b>Viewed:</b></td><td><%= @listing.viewed %>
+</tr>
 
-<p>
-  <b>Beds:</b>
-  <%= @listing.beds %>
-</p>
-
-<p>
-  <b>Baths:</b>
-  <%= @listing.baths %>
-</p>
-
-<p>
-  <b>Lot size:</b>
-  <%= @listing.lot_size %>
-</p>
-
-<p>
-  <b>Home size:</b>
-  <%= @listing.home_size %>
-</p>
-
-<p>
-  <b>Sold price:</b>
-  <%= @listing.sold_price %>
-</p>
-
-<p>
-  <b>Date sold:</b>
-  <%= @listing.date_sold %>
-</p>
-
-<p>
-  <b>Sale type:</b>
-  <%= @listing.sale_type %>
-</p>
-
-<p>
-  <b>Listing:</b>
-  <%= @listing.listing %>
-</p>
-
-<p>
-  <b>Times listed:</b>
-  <%= @listing.times_listed %>
-</p>
-
-<p>
-  <b>Market time:</b>
-  <%= @listing.market_time %>
-</p>
-
-<p>
-  <b>Contact:</b>
-  <%= @listing.contact %>
-</p>
-
-<p>
-  <b>Contacted:</b>
-  <%= @listing.contacted %>
-</p>
-
-<p>
-  <b>Viewed:</b>
-  <%= @listing.viewed %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @listing.notes %>
-</p>
-
+<tr>
+  <td  align="right"><b>Notes:</b></td>
+<td colspan='5'><%= @listing.notes %></td>
+</tr>
+</table>
+<br />
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
