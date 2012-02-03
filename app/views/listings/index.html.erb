@@ -1,36 +1,38 @@
-<h1>Listing listings</h1>
+<h1>Home listings</h1>
 
 <table>
   <tr>
-    <th>Priority</th>
-    <th>Zip</th>
+    <th><%= sortable "priority", "Priority" %></th>
+    <th><%= sortable "zip", "Zipcode" %></th>
     <th>Address</th>
-    <th>City</th>
+    <th><%= sortable "city", "City" %></th>
 <!--
     <th>State</th>
 -->
-    <th>Price</th>
-    <th>Zprice</th>
+    <th><%= sortable "price", "Price" %></th>
+    <th><%= sortable "zprice", "Z-Price" %></th>
 <!--
     <th>Beds</th>
     <th>Baths</th>
 -->
-    <th>Lot size</th>
-    <th>Home size</th>
-    <th>Sold price</th>
-    <th>Date sold</th>
+    <th><%= sortable "lot_size", "Lot" %></th>
+    <th><%= sortable "home_size", "Home" %></th>
+    <th><%= sortable "sold_price", "Sold price" %></th>
+    <th><%= sortable "date_sold", "Date sold" %></th>
 <!--
     <th>Sale type</th>
     <th>Listing</th>
     <th>Times listed</th>
 -->
-    <th>Market time</th>
+    <th><%= sortable "market_time", "Listed Days" %></th>
     <th>Contact</th>
 <!--
     <th>Contacted</th>
 -->
-    <th>Viewed</th>
+    <th><%= sortable "viewed", "Viewed" %></th>
+<!--
     <th>Notes</th>
+-->
     <th></th>
     <th></th>
     <th></th>
@@ -45,8 +47,8 @@
 <!--
     <td>< % = listing.state % ></td>
 -->
-    <td>$&nbsp;<%=  number_with_delimiter(listing.price, :delimiter => ',') %></td>
-    <td>$&nbsp;<%=  number_with_delimiter(listing.zprice, :delimiter => ',') %></td>
+    <td>$&nbsp;<%= number_with_delimiter(listing.price, :delimiter => ',') %></td>
+    <td>$&nbsp;<%= number_with_delimiter(listing.zprice, :delimiter => ',') %></td>
 <!--
     <td>< % = listing.beds % ></td>
     <td>< % = listing.baths % ></td>
@@ -67,12 +69,11 @@
 <!--
     <td><%= listing.contacted %></td>
 
-<td>< % = check_box_tag :contacted , 1 , listing.contacted ? false :
-true % ></td>
+<td>< % = check_box_tag :contacted , 1 , listing.contacted ? false : true % ></td>
     <td>< % = listing.viewed % ></td>
 -->
 
-    <td><%= check_box_tag :viewed , 1 , listing.viewed ? true : false %>
+    <td><%= listing.viewed ? 'yes' : 'no' %>
 <!--
     <td>< % = listing.notes % ></td>
 -->
@@ -84,5 +85,6 @@ true % ></td>
 </table>
 
 <br />
-
+<center><%= paginate @listings %><br />
 <%= link_to 'New Listing', new_listing_path %>
+</center>
