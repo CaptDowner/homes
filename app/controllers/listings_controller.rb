@@ -1,8 +1,9 @@
 class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
-  def index
-    @listings = Listing.all
+  helper_method :sort_column, :sort_direction  
+  def index  
+    @listings = Listing.order(sort_column + ' ' + sort_direction).page params[:page]  
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +81,15 @@ class ListingsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private  
+
+  def sort_column  
+    params[:sort] || "zip"  
+  end  
+    
+  def sort_direction  
+    params[:direction] || "asc"  
+  end  
+  
 end
