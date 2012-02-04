@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :priority %>: <%= f.select(:priority, ['unrated','must','should','maybe','never']) %>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :priority %>: <%= f.select(:priority, ['unrated','must','should','maybe','never']) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :beds %>: <%= f.select(:beds, ['2','3','4','5']) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :baths %>: <%= f.select(:baths, ['1','1.5','2','2.5','3','3.5','4','4.5','5']) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :sale_type %>: <%= f.select(:sale_type, ['normal','short','foreclosure']) %>&nbsp;&nbsp;&nbsp;
@@ -21,28 +21,29 @@
     <%= f.label :state %>: <%= f.select(:state, ['CA','NV','FL','WA','AZ']) %>   
   </div>
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :address %>: <%= f.text_field :address %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :city %>: <%= f.text_field :city %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :zip %>: <%= f.text_field :zip %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :address %>: <%= f.text_field(:address, :size => 20) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :city %>: <%= f.text_field(:city, :size => 20) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :zip %>: <%= f.text_field(:zip, :size => 10) %>
   </div>
 
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :price %>: <%= f.number_field :price %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :zprice %>: <%= f.number_field :zprice %>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :price %>: <%= f.number_field(:price, :size => 10) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :zprice %>: <%= f.number_field(:zprice, :size => 10) %>
   </div>
   <div class="field">
-   &nbsp;<%= f.label :market_time %>:  <%= f.number_field :market_time %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :lot_size %>: <%= f.number_field :lot_size %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :home_size %>: <%= f.number_field :home_size %>
+   &nbsp;<%= f.label :market_time %>:  <%= f.number_field(:market_time, :size => 10) %>&nbsp;&nbsp;
+    <%= f.label :lot_size %>: <%= f.number_field(:lot_size, :size => 10) %>&nbsp;&nbsp;
+    <%= f.label :home_size %>: <%= f.number_field(:home_size, :size => 10) %>
   </div>
   <div class="field">
     &nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :date_sold %>: <%= f.date_select :date_sold, :start_year => 1950 %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :sold_price %>: <%= f.number_field :sold_price %>
+    <%= f.label :sold_price %>: <%= f.number_field(:sold_price, :size => 10) %>
   </div>
   <div class="field">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :contact %>: <%= f.text_field :contact %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :cell %>: <%= f.text_field :cell %>&nbsp;&nbsp;&nbsp;
-    <%= f.label :phone %>: <%= f.text_field :phone %>
+    <%= f.label :cell %>: <%= f.text_field(:cell, :size => 12) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :phone %>: <%= f.text_field(:phone, :size => 12) %>
 
   </div>
   <div class="field">
@@ -52,7 +53,11 @@
   </div>
 
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :url %>: <%= f.text_field :url %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :url %>: <%= f.text_field(:url, :size => 80) %>
+  </div>
+
+  <div class="field">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :photo %>:&nbsp;<%= f.text_field :photo %>
   </div>
 
   <div class="field">
