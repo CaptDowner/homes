@@ -11,36 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202171701) do
+ActiveRecord::Schema.define(:version => 20120203172726) do
 
   create_table "listings", :force => true do |t|
-    t.string   "priority"
+    t.string   "priority",     :default => "unrated"
     t.string   "zip"
     t.string   "address"
     t.string   "city"
-    t.string   "state"
+    t.string   "state",        :default => "CA"
     t.integer  "price"
     t.integer  "zprice"
-    t.string   "beds"
-    t.string   "baths"
+    t.string   "beds",         :default => "3"
+    t.string   "baths",        :default => "2"
     t.integer  "lot_size"
     t.integer  "home_size"
     t.integer  "sold_price"
     t.date     "date_sold"
-    t.string   "sale_type"
+    t.string   "sale_type",    :default => "normal"
     t.string   "listing"
-    t.string   "times_listed"
+    t.string   "times_listed", :default => "once"
     t.integer  "market_time"
     t.string   "contact"
     t.boolean  "contacted"
-    t.boolean  "viewed"
+    t.boolean  "viewed",       :default => false
     t.text     "notes"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
     t.string   "cell"
     t.string   "phone"
     t.boolean  "sold",         :default => false
     t.string   "url"
+    t.string   "photo"
   end
 
 end
