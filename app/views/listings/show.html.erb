@@ -13,29 +13,30 @@
 </tr>
 
 <tr>
-  <td  align="right"><b>Price:</b></td><td><%= @listing.price %></td><td  align="right"><b>Z-Estimate:</b></td><td><%= @listing.zprice %></td><td  align="right"><b>Home size:</b></td><td><%= @listing.home_size %></td>
+  <td align="right"><b>Price:</b></td><td>$ <%= number_with_delimiter(@listing.price, :delimiter => ',') %></td><td align="right"><b>Z-Estimate:</b></td><td>$ <%= number_with_delimiter(@listing.zprice, :delimiter => ',') %></td><td align="right"><b>Home size:</b></td><td><%= number_with_delimiter(@listing.home_size, :delimiter => ',') %></td>
 </tr>
 
 <tr>
-  <td  align="right"><b>Beds:</b></td><td><%= @listing.beds %></td><td  align="right"><b>Baths:</b></td><td><%= @listing.baths %></td><td  align="right"><b>Lot size:</b></td><td><%= @listing.lot_size %></td>
+  <td align="right"><b>Beds:</b></td><td><%= @listing.beds %></td><td  align="right"><b>Baths:</b></td><td><%= @listing.baths %></td><td  align="right"><b>Lot size:</b></td><td><%= number_with_delimiter(@listing.lot_size, :delimiter => ',') %></td>
 </tr>
 
 <tr>
-  <td  align="right"><b>Sold price:</b></td><td><%= @listing.sold_price %></td><td  align="right"><b>Date sold:</b></td><td><%= @listing.date_sold %></td><td  align="right"><b>Sale type:</b></td><td><%= @listing.sale_type %></td> 
+  <td align="right"><strong>Sold price:</strong></td>
+  <td>$ <%= number_with_delimiter(@listing.sold_price, :delimiter => ',') %></td><td align="right"><strong>Date sold:</strong></td><td><%= @listing.date_sold %></td><td  align="right"><b>Sale type:</b></td><td><%= @listing.sale_type %></td> 
 </tr>
 
 <tr>
-  <td  align="right"><b>Listing:</b></td><td><%= @listing.listing %><td  align="right"><b>Times listed:</b></td><td><%= @listing.times_listed %> 
+  <td align="right"><b>Listing:</b></td><td><%= @listing.listing %><td  align="right"><b>Times listed:</b></td><td><%= @listing.times_listed %> 
   <% days = ((Date.today - @listing.created_at.to_date) + @listing.market_time).to_i %>
   <td  align="right"><b>Days On Market:</b></td><td><%= days.to_i %>
 </tr>
 
 <tr>
-  <td  align="right"><b>Contact:</b></td><td><%= @listing.contact %> <td  align="right"><b>Cell:</b></td><td><%= @listing.cell %> <td  align="right"><b>Phone:</b></td><td><%= @listing.phone %>
+  <td align="right"><b>Contact:</b></td><td><%= @listing.contact %> <td  align="right"><b>Cell:</b></td><td><%= @listing.cell %> <td  align="right"><b>Phone:</b></td><td><%= @listing.phone %>
 </tr>
 
 <tr>
-  <td  align="right"><b>Contacted:</b></td><td><%= @listing.contacted %> <td  align="right"><b>Viewed:</b></td><td><%= @listing.viewed %>
+  <td align="right"><b>Contacted:</b></td><td><%= @listing.contacted ? "yes" : "no" %> <td  align="right"><b>Viewed:</b></td><td><%= @listing.viewed ? "yes" : "no" %>
 </tr>
 
 <tr>
@@ -45,15 +46,23 @@
 
 <tr>
  <td  align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>URL:</b></td>
-  <td colspan="4"><%= link_to(@listing.url, @listing.url, :remote => true) %></td>
+  <td colspan="6"><%= link_to(@listing.url, @listing.url, :remote => true) %></td>
+</tr>
+
+  <tr>
+  <td  align="right">&nbsp;&nbsp;&nbsp;&nbsp;<b>Photo:</b></td>
+  <td colspan="4"><img border="0" height="150" width="200" src="/assets/<%= @listing.photo %>" alt="displaying #{@listing.photo}" /></td>
 </tr>
 
 <tr>
   <td  align="right"><b>Notes:</b></td>
 <td colspan='5'><%= @listing.notes %></td>
 </tr>
-</table>
-<br />
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+
+<tr>
+  <td></td>
+  <td><strong><%= link_to 'Edit', edit_listing_path(@listing) %> | <%= link_to 'Back', listings_path %></strong></td>
+  </td>
+</tr>
+</table>
