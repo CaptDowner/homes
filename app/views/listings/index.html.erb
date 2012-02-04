@@ -1,3 +1,4 @@
+<center>
 <h1>Home listings</h1>
 
 <table>
@@ -25,8 +26,9 @@
     <th>Times listed</th>
 -->
     <th><%= sortable "market_time", "Listed Days" %></th>
-    <th>Contact</th>
 <!--
+    <th>Contact</th>
+
     <th>Contacted</th>
 -->
     <th><%= sortable "viewed", "Viewed" %></th>
@@ -65,8 +67,9 @@
 -->
     <% days = ((Date.today - listing.created_at.to_date) + listing.market_time) %>
     <td align="center"><%= days.to_i %></td>
-    <td><%= listing.contact %></td>
 <!--
+    <td>< % = listing.contact % ></td>
+
     <td><%= listing.contacted %></td>
 
 <td>< % = check_box_tag :contacted , 1 , listing.contacted ? false : true % ></td>
@@ -85,6 +88,7 @@
 </table>
 
 <br />
-<center><%= paginate @listings %><br />
+<strong><%= paginate @listings %><br />
 <%= link_to 'New Listing', new_listing_path %>
+</strong>
 </center>
