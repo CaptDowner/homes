@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203172726) do
+ActiveRecord::Schema.define(:version => 20120206205825) do
 
   create_table "listings", :force => true do |t|
     t.string   "priority",     :default => "unrated"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120203172726) do
     t.boolean  "sold",         :default => false
     t.string   "url"
     t.string   "photo"
+    t.string   "built",        :default => "2000"
   end
 
 end
