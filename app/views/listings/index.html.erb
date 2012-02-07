@@ -31,7 +31,9 @@
 
     <th>Contacted</th>
 -->
+    <th><%= sortable "built", "Age" %></th>
     <th><%= sortable "viewed", "Viewed" %></th>
+
 <!--
     <th>Notes</th>
 -->
@@ -65,7 +67,7 @@
     <td>< % = listing.times_listed % ></td>
     <td align="center">< % = listing.market_time % ></td>
 -->
-    <% days = ((Date.today - listing.created_at.to_date) + listing.market_time) %>
+    <% days = (Date.today - listing.created_at.to_date) + listing.market_time %>
     <td align="center"><%= days.to_i %></td>
 <!--
     <td>< % = listing.contact % ></td>
@@ -75,8 +77,9 @@
 <td>< % = check_box_tag :contacted , 1 , listing.contacted ? false : true % ></td>
     <td>< % = listing.viewed % ></td>
 -->
+    <td><%= listing.built %></td>
+    <td align="center"><%= listing.viewed ? 'yes' : 'no' %>
 
-    <td><%= listing.viewed ? 'yes' : 'no' %>
 <!--
     <td>< % = listing.notes % ></td>
 -->
