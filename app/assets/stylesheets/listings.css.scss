@@ -1,3 +1,24 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#content-body-wrapper { 
+    display:table; 
+    border-collapse:collapse; 
+} 
+
+#content-body { 
+    display:table-row; 
+} 
+
+#primary-nav, #secondary-nav, #content { 
+    display:table-cell; 
+} 
+
+#primary-nav, #secondary-nav { 
+    width:20%; 
+} 
+
+#content { 
+    width:60%; 
+}  
