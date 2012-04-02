@@ -1,4 +1,4 @@
 class Listing < ActiveRecord::Base
-    paginates_per 15
+    paginates_per 20
 #    include ActionView:Helpers::DateHelper
 end
