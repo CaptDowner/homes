@@ -1,5 +1,3 @@
-
-
 class ListingsController < ApplicationController
 #  include ActionView::Helpers::DateHelper
   # GET /listings
@@ -18,10 +16,11 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listing = Listing.find(params[:id])
+    fresh_when etag: @listing
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @listing }
+#      format.json { render json: @listing }
     end
   end
 
