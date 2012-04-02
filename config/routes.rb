@@ -1,5 +1,15 @@
 Homes::Application.routes.draw do
+  resources :users
+  resources :sessions
   resources :listings
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+#  get "sessions/new"
+#  get "users/new"
+  get "secret" => "listings#secret", :as => "secret"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -50,7 +60,7 @@ Homes::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'listings#index'
 
   # See how all your routes lay out with "rake routes"
 
