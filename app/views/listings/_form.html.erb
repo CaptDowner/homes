@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :priority %>: <%= f.select(:priority, ['unrated','must','should','maybe','never']) %>&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.label :priority %>: <%= f.select(:priority, ['unrated','must','should','maybe','never','pending','sold']) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :beds %>: <%= f.select(:beds, ['2','3','4','5']) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :baths %>: <%= f.select(:baths, ['1','1.5','2','2.5','3','3.5','4','4.5','5']) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :sale_type %>: <%= f.select(:sale_type, ['normal','short','foreclosure']) %>&nbsp;&nbsp;&nbsp;
